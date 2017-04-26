@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="linqtoregdb">
+  <DataContextMoniker Name="/linqtoregdbDataContext" />
+  <nestedChildShapes>
+    <classShape Id="8caa284d-e17e-4f36-a4a8-1f3e8d72b5f2" absoluteBounds="0.5, 0.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/linqtoregdbDataContext/user" />
+      <nestedChildShapes>
+        <elementListCompartment Id="525a56e5-b212-40b5-bc09-88b3c6aefb02" absoluteBounds="0.51500000000000012, 1.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.20923076923077 : 2.90549967447917); (1.20923076923077 : 3.15549967447917); (1.80461538461538 : 3.15549967447917); (1.80461538461538 : 2.90549967447917)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/linqtoregdbDataContext/user/user_user" />
+      <nodes>
+        <classShapeMoniker Id="8caa284d-e17e-4f36-a4a8-1f3e8d72b5f2" />
+        <classShapeMoniker Id="8caa284d-e17e-4f36-a4a8-1f3e8d72b5f2" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="cdcb6716-0c07-400e-94a9-0fa5c5f7091d" absoluteBounds="5.5, 1, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/linqtoregdbDataContext/user_course" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9f50c048-31c9-4553-ae69-1f7e154887d4" absoluteBounds="5.515, 1.46, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 1.82774983723958); (3.125 : 1.82774983723958); (3.125 : 0.5); (5.9687505 : 0.5); (5.9687505 : 1)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/linqtoregdbDataContext/user/user_user_course" />
+      <nodes>
+        <classShapeMoniker Id="8caa284d-e17e-4f36-a4a8-1f3e8d72b5f2" />
+        <classShapeMoniker Id="cdcb6716-0c07-400e-94a9-0fa5c5f7091d" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="139223b6-91be-4b85-a546-3504113727c2" absoluteBounds="2.75, 3.875, 2, 1.3862939453125">
+      <DataClassMoniker Name="/linqtoregdbDataContext/course_timeblock" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f99d3f45-e3a4-48ec-ac56-024256ee6095" absoluteBounds="2.765, 4.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4dd31ee6-5ef1-48a1-b0f1-9fe04c5cf36c" absoluteBounds="6.5, 0.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/linqtoregdbDataContext/pong" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cc74d74c-e69a-400f-b888-9f12644511bf" absoluteBounds="6.515, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fcb4f057-adc1-42b8-9336-438788ccc754" absoluteBounds="6.375, 3.5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/linqtoregdbDataContext/prereq" />
+      <nestedChildShapes>
+        <elementListCompartment Id="35b6cb8c-3387-46e4-9ac5-cdbc7b10420d" absoluteBounds="6.39, 3.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="23253598-1ba7-45bc-aad2-2b397fb91af0" absoluteBounds="3.375, 0.875, 2, 2.5401025390625">
+      <DataClassMoniker Name="/linqtoregdbDataContext/course" />
+      <nestedChildShapes>
+        <elementListCompartment Id="156cee25-927f-46cd-b3c6-8e70049dca21" absoluteBounds="3.3899999999999997, 1.335, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.375 : 2.07774983723958); (5.5 : 2.07774983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/linqtoregdbDataContext/course/course_user_course" />
+      <nodes>
+        <classShapeMoniker Id="23253598-1ba7-45bc-aad2-2b397fb91af0" />
+        <classShapeMoniker Id="cdcb6716-0c07-400e-94a9-0fa5c5f7091d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.0625 : 3.4151025390625); (4.0625 : 3.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/linqtoregdbDataContext/course/course_course_timeblock" />
+      <nodes>
+        <classShapeMoniker Id="23253598-1ba7-45bc-aad2-2b397fb91af0" />
+        <classShapeMoniker Id="139223b6-91be-4b85-a546-3504113727c2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.750002 : 3.4151025390625); (4.750002 : 3.625); (5 : 3.625); (5 : 4.19314697265625); (6.375 : 4.19314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/linqtoregdbDataContext/course/course_prereq" />
+      <nodes>
+        <classShapeMoniker Id="23253598-1ba7-45bc-aad2-2b397fb91af0" />
+        <classShapeMoniker Id="fcb4f057-adc1-42b8-9336-438788ccc754" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.5 : 2.42912475585937); (3.375 : 2.42912475585937)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/linqtoregdbDataContext/user/user_course" />
+      <nodes>
+        <classShapeMoniker Id="8caa284d-e17e-4f36-a4a8-1f3e8d72b5f2" />
+        <classShapeMoniker Id="23253598-1ba7-45bc-aad2-2b397fb91af0" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

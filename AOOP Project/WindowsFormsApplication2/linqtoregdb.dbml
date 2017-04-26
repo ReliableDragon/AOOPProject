@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="registration" Class="linqtoregdbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\sqlexpress;Initial Catalog=registration;Persist Security Info=True;User ID=kkg" SettingsObjectName="WindowsFormsApplication2.Properties.Settings" SettingsPropertyName="registrationConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.users" Member="users">
+    <Type Name="user">
+      <Column Name="userID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="usertype" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="firstName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="lastName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="advisor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="user_user" Member="user2" ThisKey="userID" OtherKey="userID" Type="user" Cardinality="One" />
+      <Association Name="user_user_course" Member="user_courses" ThisKey="username" OtherKey="username" Type="user_course" />
+      <Association Name="user_course" Member="courses" ThisKey="userID" OtherKey="instructor" Type="course" />
+      <Association Name="user_user" Member="user1" ThisKey="userID" OtherKey="userID" Type="user" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.user_courses" Member="user_courses">
+    <Type Name="user_course">
+      <Column Name="user_courseID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="courseName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="courseID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="semester" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="courseCredit" Type="System.Decimal" DbType="Decimal(8,4)" CanBeNull="true" />
+      <Column Name="grade" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Association Name="user_user_course" Member="user" ThisKey="username" OtherKey="username" Type="user" IsForeignKey="true" />
+      <Association Name="course_user_course" Member="course" ThisKey="courseID" OtherKey="courseID" Type="course" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.course_timeblocks" Member="course_timeblocks">
+    <Type Name="course_timeblock">
+      <Column Name="course_timeblockID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="courseID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="timeblock" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="course_course_timeblock" Member="course" ThisKey="courseID" OtherKey="courseID" Type="course" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.pong" Member="pongs">
+    <Type Name="pong">
+      <Column Name="username" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="survival_highscore" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="invaders_highscore" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="snake_highscore" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pacman_highscore" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.prereqs" Member="prereqs">
+    <Type Name="prereq">
+      <Column Name="course_prereqID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="courseName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="prereqName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="course_prereq" Member="course" ThisKey="courseName" OtherKey="courseName" Type="course" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.courses" Member="courses">
+    <Type Name="course">
+      <Column Name="courseID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="courseName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="courseTitle" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="instructor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="courseCredit" Type="System.Decimal" DbType="Decimal(8,4) NOT NULL" CanBeNull="false" />
+      <Column Name="numSeats" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="department" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="section" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="semester" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="course_user_course" Member="user_courses" ThisKey="courseID" OtherKey="courseID" Type="user_course" />
+      <Association Name="course_course_timeblock" Member="course_timeblocks" ThisKey="courseID" OtherKey="courseID" Type="course_timeblock" />
+      <Association Name="course_prereq" Member="prereqs" ThisKey="courseName" OtherKey="courseName" Type="prereq" />
+      <Association Name="user_course" Member="user" ThisKey="instructor" OtherKey="userID" Type="user" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
